@@ -1,12 +1,22 @@
 <div *ngIf="hero">
-  <h2>Those are details of {{hero.name}}</h2>
-  <div>
-    <label>ID: </label> {{hero.id}}
+  <div class="jumbotron">
+    <h2>{{hero.name}}'s profile</h2>
+    <small class="text-muted">You can preview or edit the information about your hero!</small> 
+    
   </div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="hero.name" />
-  </div>
-  
-  <button (click)="goBack()">Back</button>
-</div>  
+  <table class="table table-striped">
+    <tr>
+      <th>hero id:</th>
+      <th>hero name:</th>
+    </tr>
+    <tr>
+      <td>
+        <h4><input type="text" class="form-control" [(ngModel)]="hero.id"></h4>
+      </td>
+      <td>
+        <h4><input type="text" class="form-control" [(ngModel)]="hero.name"></h4>
+      </td>
+    </tr>
+  </table>
+  <p><button class="btn btn-info" (click)="goBack()">< Back</button></p>
+</div>

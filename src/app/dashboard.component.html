@@ -1,8 +1,15 @@
-<h1>Dashboard</h1>
-<div>
-  <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]">
-    <div>
-      <h4>{{hero.name}}</h4>
-    </div>
-  </a>
+<div class="jumbotron">
+  <h2>{{title}}</h2>
+  <small class="text-muted">{{description}}</small>
 </div>
+
+<table class="table table-striped">
+  <tr *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]">
+    <td>
+      <h4>
+        {{hero.id}} ~ {{hero.name}}
+      </h4>
+    </td>
+  </tr>
+</table>
+

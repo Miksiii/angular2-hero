@@ -14,6 +14,9 @@ import {HeroService} from './hero.service'
 })
 
 export class HeroesComponent implements OnInit { 
+
+  title: string = 'Heroes';
+  description: string = 'The list of all heroes available';
   selectedHero: Hero;
   heroes : Hero[];
 

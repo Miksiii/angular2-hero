@@ -6,11 +6,14 @@ import {HeroService} from './hero.service';
   moduleId: module.id,
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
+  styleUrls: ['dashboard.component.css']
   providers: [HeroService]
 })
 
 export class DashboardComponent implements OnInit {
 
+  title: string = 'Dashboard';
+  description: string = 'Latest hot heroes!';
   heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) { }

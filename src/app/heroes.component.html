@@ -1,13 +1,16 @@
-<h2>My Heroes!</h2>
-<ul class="heroes">
-  <li class="hero"
-      *ngFor="let hero of heroes"
-      (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> 
-    <span class="name">{{hero.name}}</span>
-  </li>
-</ul>
+<div class="jumbotron">
+  <h2>{{title}}</h2>
+  <small class="text-muted">{{description}}</small>
+</div>
+<table class="table table-striped">
+  <tr *ngFor="let hero of heroes"
+      [routerLink]="['/detail', hero.id]">
+    <td><b>{{hero.id}}</b> / {{hero.name}}</td>
+  </tr>
+</table>
 <div *ngIf="selectedHero">
   <h2>Those are details of {{selectedHero.name | uppercase}} is my hero!</h2>
   <button (click)="gotoDetail()">View detail</button>
 </div>  
+
+
