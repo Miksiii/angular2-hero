@@ -10,24 +10,31 @@ import { HeroService } from './hero.service'
   moduleId: module.id,
   selector: 'hero-detail',
   templateUrl: './hero-detail.component.html', 
-  styleUrls: ['hero-detail.component.css']
+  styleUrls: ['hero-detail.component.css'],
   providers: [ HeroService ]
 })
 
 export class HeroDetailComponent implements OnInit {
   @Input()
   hero : Hero;
+  races : string[];
 
   constructor(
     private heroService : HeroService, 
     private route : ActivatedRoute, 
     private location : Location
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.heroService.getHero(+params['id']))
       .subscribe(hero => this.hero = hero);
+    this.getRaces();
+  }
+
+  getRaces() : void {
+    this.heroService.getRaces()
+      .then(races => this.races = races);
   }
 
   goBack() : void {

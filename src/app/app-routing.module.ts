@@ -20,9 +20,13 @@ const ROUTES : Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'detail/:id',
+    path: 'heroes/detail/:id',
     component: HeroDetailComponent
-  }
+  },
+  {
+    path: 'heroes/:race',
+    component: HeroesComponent
+  }  
 ];
 
 @NgModule({

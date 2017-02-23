@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { HeroDetailComponent }  from './hero-detail.component';
 import {Hero} from './hero';
 import {HEROES} from './hero-mock';
@@ -22,6 +23,8 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private router : Router,
+    private route : ActivatedRoute,
+    private location : Location,
     private heroService : HeroService
   ) {}
 
@@ -34,12 +37,32 @@ export class HeroesComponent implements OnInit {
       then(heroes => this.heroes = heroes);
   }
 
+  getHeroesByRace(race : string): void {
+    this.heroService.getHeroesByRace(race).
+      then(heroes => this.heroes = heroes);
+  }
+
   ngOnInit(): void {
-    this.getHeroes();
+    this.route.params.subscribe(params => {
+
+      let paramRace : string = params['race'];
+
+      if (paramRace === undefined) {
+        this.getHeroes();
+      } else {
+        this.title = 'Heroes of ' + paramRace + '\'s';
+        this.getHeroesByRace(paramRace);
+      }
+    });
   }
 
   gotoDetail() : void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
+    console.log('dsadad'  + this.selectedHero);
+    this.router.navigate(['heroes/detail', this.selectedHero.id]);
+  }
+
+  goBack() : void {
+    this.location.back();
   }
 
 }

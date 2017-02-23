@@ -3,13 +3,82 @@
   <small class="text-muted">{{description}}</small>
 </div>
 
+<h3>Top of heroes of <b>all kind</b></h3>
 <table class="table table-striped">
-  <tr *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]">
+  <tr *ngFor="let hero of heroesTopAllkind" [routerLink]="['/heroes/detail', hero.id]">
     <td>
       <h4>
         {{hero.id}} ~ {{hero.name}}
       </h4>
     </td>
   </tr>
+  <tr>
+    <td>
+      <h4><a class="btn btn-success" routerLink="/heroes">View all</a></h4>
+    </td>
+  </tr>
 </table>
 
+<h3>Top <b>human</b> heroes</h3>
+<table class="table table-striped">
+  <tr *ngFor="let hero of heroesTopHumans" [routerLink]="['/heroes/detail', hero.id]">
+    <td>
+      <h4>
+        {{hero.id}} ~ {{hero.name}}
+      </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><a class="btn btn-success" [routerLink]="['/heroes/human']">View all</a></h4>
+    </td>
+  </tr>  
+</table>
+
+<h3>Top <b>orc</b> heroes</h3>
+<table class="table table-striped">
+  <tr *ngFor="let hero of heroesTopOrcs" [routerLink]="['/heroes/detail', hero.id]">
+    <td>
+      <h4>
+        {{hero.id}} ~ {{hero.name}}
+      </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><a class="btn btn-success" [routerLink]="['/heroes/orc']">View all</a></h4>
+    </td>
+  </tr>   
+</table>
+
+<h3>Top <b>undead</b> heroes</h3>
+<table class="table table-striped">
+  <tr *ngFor="let hero of heroesTopUndeads" [routerLink]="['/heroes/detail', hero.id]">
+    <td>
+      <h4>
+        {{hero.id}} ~ {{hero.name}}
+      </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><a class="btn btn-success" [routerLink]="['/heroes/undead']">View all</a></h4>
+    </td>
+  </tr>   
+</table>
+
+<h3>Top <b>elf</b> heroes</h3>
+<table class="table table-striped">
+  <tr *ngFor="let hero of heroesTopElfs" [routerLink]="['/heroes/detail', hero.id]">
+    <td>
+      <h4>
+        {{hero.id}} ~ {{hero.name}}
+      </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4><a class="btn btn-success" [routerLink]="['/heroes/elf']">View all</a></h4>
+    </td>
+  </tr>   
+</table>

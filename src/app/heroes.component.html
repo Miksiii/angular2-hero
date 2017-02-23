@@ -4,13 +4,11 @@
 </div>
 <table class="table table-striped">
   <tr *ngFor="let hero of heroes"
-      [routerLink]="['/detail', hero.id]">
+      [routerLink]="['/heroes/detail', hero.id]">
     <td><b>{{hero.id}}</b> / {{hero.name}}</td>
   </tr>
 </table>
-<div *ngIf="selectedHero">
-  <h2>Those are details of {{selectedHero.name | uppercase}} is my hero!</h2>
-  <button (click)="gotoDetail()">View detail</button>
-</div>  
+
+<button class="btn btn-info" (click)="goBack()">< Back</button>
 
 
