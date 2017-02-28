@@ -1,0 +1,39 @@
+<div class="jumbotron">
+  <h1>{{title}}</h1>
+  <p>{{description}}</p>
+</div>
+
+<form (ngSubmit)="onCreateHero()" #heroForm="ngForm" [hidden]="submitted">
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" required
+           [(ngModel)]="hero.name" name="name" #nameRef="ngModel"> 
+
+    <div class="alert alert-danger" 
+           [hidden]="nameRef.valid || nameRef.pristine">
+      Name for a hero is required!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="race">Race</label>
+    <select class="form-control" id="race" required
+            [(ngModel)]="hero.race" name="race" #raceRef="ngModel">
+      <option *ngFor="let race of races" [value]="race">{{race}}</option>
+    </select>
+
+    <div class="alert alert-danger" 
+           [hidden]="raceRef.valid || raceRef.pristine">
+      You must choose a race for your hero.
+    </div>    
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+</form>
+
+<div class="col-md-12 alert alert-info" [hidden]="!submitted">
+  <p>A new hero has been added!</p>
+  <button class="btn btn-info" (click)="toggleForm()">Add new</button>
+</div>
+
