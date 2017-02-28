@@ -31,4 +31,10 @@ export class HeroService {
     return Promise.resolve(RACES);
   }
 
+  createHero(newHero : Hero) : void {
+     console.log(newHero);
+     console.log(HEROES);
+     HEROES.push(newHero);
+  }
+
 }

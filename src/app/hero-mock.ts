@@ -2,7 +2,7 @@ import {Hero} from './hero';
 
 // Race: Human, Orc, Undead, Elf
 
-export const HEROES: Hero[] = [
+export var HEROES: Hero[] = [
   { id: 7, name: 'Death Cry Beag', race: 'undead'},
   { id: 6, name: 'Crypt', race: 'undead'},
   { id: 7, name: 'Lichking', race: 'undead'},
