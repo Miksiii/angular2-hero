@@ -37,4 +37,10 @@ export class HeroService {
      HEROES.push(newHero);
   }
 
+  destroy(hero : Hero) : void {
+    const heroToDelete = this.getHeroes().then(heroes => heroes.find(hero => hero.id === hero.id));
+    const index = HEROES.indexOf(hero);
+    HEROES.splice(index, 1);
+  }
+
 }

@@ -5,12 +5,13 @@
     
   </div>
   <table class="table table-striped">
-    <tr>
+    <tr [hidden]="isDestroyed">
       <th>hero id:</th>
       <th>hero name:</th>
       <th>hero race:</th>
+      <th>remove?</th>
     </tr>
-    <tr>
+    <tr [hidden]="isDestroyed">
       <td>
         <div class="form-group">
           <input type="text" class="form-control" [(ngModel)]="hero.id">
@@ -30,13 +31,17 @@
           </select>
         </div>      
       </td>      
+      <td>
+        <button class="btn btn-danger" (click)="toggleDestroy()">&#10006;</button>
+      </td>
     </tr>
   </table>
+
+  <div class="undo" [hidden]="!isDestroyed">
+    <p>You have just destroyed one hero. <button class="alert alert-info" (click)="toggleDestroy()">Undo</button></p>
+  </div>
+
   <p><button class="btn btn-info" (click)="goBack()">< Back</button></p>
-
-
-
-
 </div>
 
 

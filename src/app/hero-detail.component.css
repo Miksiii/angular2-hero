@@ -2,3 +2,9 @@ input[type=text],
 select {
   border-color: transparent;
 }
+
+.undo {
+  color: #31b0d5;
+  padding: 15px 15px;
+  margin-bottom: 25px;
+}
